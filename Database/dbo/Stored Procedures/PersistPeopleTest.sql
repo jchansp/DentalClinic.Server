@@ -3,9 +3,9 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DECLARE @Person Person;
+	DECLARE @People Person;
 
-	INSERT @Person (
+	INSERT @People (
 		Id
 		,FirstName
 		)
@@ -14,5 +14,5 @@ BEGIN
 		,'John'
 		);
 
-	EXEC PersistPeople @Person;
+	EXEC PersistPeople @People;
 END;

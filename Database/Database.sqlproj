@@ -77,5 +77,18 @@
     <Build Include="dbo\User Defined Types\Doctor.sql" />
     <Build Include="dbo\User Defined Types\Person.sql" />
     <Build Include="dbo\Tables\Entities.sql" />
+    <Build Include="dbo\Stored Procedures\PersistPatients.sql" />
+    <Build Include="dbo\User Defined Types\Patient.sql" />
+    <Build Include="dbo\Stored Procedures\PersistUsers.sql" />
+    <Build Include="dbo\User Defined Types\User.sql" />
+    <Build Include="dbo\User Defined Types\Entity.sql" />
+    <Build Include="dbo\User Defined Types\Employee.sql" />
+    <Build Include="dbo\Stored Procedures\PersistEmployees.sql" />
+    <Build Include="dbo\Stored Procedures\PersistEntities.sql" />
+    <Build Include="dbo\Stored Procedures\PersistEntitiesTest.sql" />
+    <Build Include="dbo\Stored Procedures\PersistDoctorsTest.sql" />
+    <Build Include="dbo\Stored Procedures\PersistEmployeesTest.sql" />
+    <Build Include="dbo\Stored Procedures\PersistPatientsTest.sql" />
+    <Build Include="dbo\Stored Procedures\PersistUsersTest.sql" />
   </ItemGroup>
 </Project>

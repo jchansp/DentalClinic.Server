@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE PersistPeople @Person Person READONLY
+﻿CREATE PROCEDURE PersistPeople @People Person READONLY
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -6,20 +6,16 @@ BEGIN
 	BEGIN TRAN;
 
 	BEGIN TRY
-		MERGE Entities AS Target
-		USING @Person AS Source
-			ON (Target.Id = Source.Id)
-		WHEN NOT MATCHED
-			THEN
-				INSERT (Id)
-				VALUES (Source.Id);
+		DECLARE @Entities Entity;
 
-		--OUTPUT deleted.*
-		--	,$ACTION
-		--	,inserted.*
-		--INTO #MyTempTable;
+		INSERT @Entities
+		SELECT Id
+		FROM @People;
+
+		EXEC PersistEntities @Entities;
+
 		MERGE People AS Target
-		USING @Person AS Source
+		USING @People AS Source
 			ON (Target.Id = Source.Id)
 		WHEN MATCHED
 			THEN

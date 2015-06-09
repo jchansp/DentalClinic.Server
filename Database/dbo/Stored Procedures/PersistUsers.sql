@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE PersistDoctors @Doctors Doctor READONLY
+﻿CREATE PROCEDURE PersistUsers @User [User] READONLY
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -6,16 +6,16 @@ BEGIN
 	BEGIN TRAN;
 
 	BEGIN TRY
-		DECLARE @Employees Employee;
+		DECLARE @Person Person;
 
-		INSERT @Employees
+		INSERT @Person
 		SELECT *
-		FROM @Doctors;
+		FROM @User;
 
-		EXEC PersistEmployees @Employees;
+		EXEC PersistPeople @Person;
 
-		MERGE Doctors AS Target
-		USING @Doctors AS Source
+		MERGE Users AS Target
+		USING @User AS Source
 			ON (Target.Id = Source.Id)
 		WHEN NOT MATCHED
 			THEN

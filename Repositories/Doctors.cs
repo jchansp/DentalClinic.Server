@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace Repositories
 {
-    public class Doctors
+    public static class Doctors
     {
         private static readonly string ConnectionString =
             ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
@@ -45,7 +45,7 @@ namespace Repositories
                 })
                 {
                     sqlConnection.Open();
-                    var sqlParameter = sqlCommand.Parameters.AddWithValue("@Doctor", person.ToDataTable());
+                    var sqlParameter = sqlCommand.Parameters.AddWithValue("@Doctors", person.ToDataTable());
                     sqlParameter.SqlDbType = SqlDbType.Structured;
                     sqlParameter.TypeName = "Doctor";
                     sqlCommand.ExecuteNonQuery();

@@ -6,7 +6,7 @@ namespace Repositories
 {
     public class Doctor : Person
     {
-        public DataTable ToDataTable()
+        public override DataTable ToDataTable()
         {
             var dataTable = new DataTable();
             dataTable.Columns.Add("Id", typeof(Guid));

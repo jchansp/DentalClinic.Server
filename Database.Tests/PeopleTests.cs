@@ -10,8 +10,8 @@ namespace Database.Tests
     [TestClass]
     public class PeopleTests : SqlDatabaseTestClass
     {
-        private SqlDatabaseTestActions Database_People_PersistData;
-        private SqlDatabaseTestActions Database_People_RetrieveData;
+        private SqlDatabaseTestActions Database_PersistPeopleData;
+        private SqlDatabaseTestActions Database_RetrievePeopleData;
 
         public PeopleTests()
         {
@@ -38,59 +38,59 @@ namespace Database.Tests
         /// </summary>
         private void InitializeComponent()
         {
-            SqlDatabaseTestAction Database_People_Persist_TestAction;
-            var resources = new ComponentResourceManager(typeof (PeopleTests));
-            SqlDatabaseTestAction Database_People_Retrieve_TestAction;
-            ExecutionTimeCondition executionTimeCondition1;
-            ExecutionTimeCondition executionTimeCondition2;
-            Database_People_PersistData = new SqlDatabaseTestActions();
-            Database_People_RetrieveData = new SqlDatabaseTestActions();
-            Database_People_Persist_TestAction = new SqlDatabaseTestAction();
-            Database_People_Retrieve_TestAction = new SqlDatabaseTestAction();
-            executionTimeCondition1 = new ExecutionTimeCondition();
-            executionTimeCondition2 = new ExecutionTimeCondition();
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Database_PersistPeople_TestAction;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeopleTests));
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExecutionTimeCondition executionTimeCondition2;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction Database_RetrievePeople_TestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExecutionTimeCondition executionTimeCondition1;
+            this.Database_PersistPeopleData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            this.Database_RetrievePeopleData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
+            Database_PersistPeople_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            executionTimeCondition2 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExecutionTimeCondition();
+            Database_RetrievePeople_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            executionTimeCondition1 = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ExecutionTimeCondition();
             // 
-            // Database_People_Persist_TestAction
+            // Database_PersistPeople_TestAction
             // 
-            Database_People_Persist_TestAction.Conditions.Add(executionTimeCondition2);
-            resources.ApplyResources(Database_People_Persist_TestAction, "Database_People_Persist_TestAction");
-            // 
-            // Database_People_Retrieve_TestAction
-            // 
-            Database_People_Retrieve_TestAction.Conditions.Add(executionTimeCondition1);
-            resources.ApplyResources(Database_People_Retrieve_TestAction, "Database_People_Retrieve_TestAction");
-            // 
-            // Database_People_PersistData
-            // 
-            Database_People_PersistData.PosttestAction = null;
-            Database_People_PersistData.PretestAction = null;
-            Database_People_PersistData.TestAction = Database_People_Persist_TestAction;
-            // 
-            // Database_People_RetrieveData
-            // 
-            Database_People_RetrieveData.PosttestAction = null;
-            Database_People_RetrieveData.PretestAction = null;
-            Database_People_RetrieveData.TestAction = Database_People_Retrieve_TestAction;
-            // 
-            // executionTimeCondition1
-            // 
-            executionTimeCondition1.Enabled = true;
-            executionTimeCondition1.ExecutionTime = TimeSpan.Parse("00:00:01");
-            executionTimeCondition1.Name = "executionTimeCondition1";
+            Database_PersistPeople_TestAction.Conditions.Add(executionTimeCondition2);
+            resources.ApplyResources(Database_PersistPeople_TestAction, "Database_PersistPeople_TestAction");
             // 
             // executionTimeCondition2
             // 
             executionTimeCondition2.Enabled = true;
-            executionTimeCondition2.ExecutionTime = TimeSpan.Parse("00:00:01");
+            executionTimeCondition2.ExecutionTime = System.TimeSpan.Parse("00:00:01");
             executionTimeCondition2.Name = "executionTimeCondition2";
+            // 
+            // Database_RetrievePeople_TestAction
+            // 
+            Database_RetrievePeople_TestAction.Conditions.Add(executionTimeCondition1);
+            resources.ApplyResources(Database_RetrievePeople_TestAction, "Database_RetrievePeople_TestAction");
+            // 
+            // executionTimeCondition1
+            // 
+            executionTimeCondition1.Enabled = true;
+            executionTimeCondition1.ExecutionTime = System.TimeSpan.Parse("00:00:01");
+            executionTimeCondition1.Name = "executionTimeCondition1";
+            // 
+            // Database_PersistPeopleData
+            // 
+            this.Database_PersistPeopleData.PosttestAction = null;
+            this.Database_PersistPeopleData.PretestAction = null;
+            this.Database_PersistPeopleData.TestAction = Database_PersistPeople_TestAction;
+            // 
+            // Database_RetrievePeopleData
+            // 
+            this.Database_RetrievePeopleData.PosttestAction = null;
+            this.Database_RetrievePeopleData.PretestAction = null;
+            this.Database_RetrievePeopleData.TestAction = Database_RetrievePeople_TestAction;
         }
 
         #endregion
 
         [TestMethod]
-        public void Database_People_Persist()
+        public void Database_PersistPeople()
         {
-            var testActions = Database_People_PersistData;
+            var testActions = Database_PersistPeopleData;
             // Execute the pre-test script
             // 
             Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");
@@ -113,9 +113,9 @@ namespace Database.Tests
         }
 
         [TestMethod]
-        public void Database_People_Retrieve()
+        public void Database_RetrievePeople()
         {
-            var testActions = Database_People_RetrieveData;
+            var testActions = Database_RetrievePeopleData;
             // Execute the pre-test script
             // 
             Trace.WriteLineIf((testActions.PretestAction != null), "Executing pre-test script...");

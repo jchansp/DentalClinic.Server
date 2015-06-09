@@ -9,12 +9,11 @@ namespace Entities.Tests
         [TestMethod]
         public void Entities_Doctor_Register()
         {
-            var doctor = new Doctor
+            new Doctor
             {
                 Id = Guid.NewGuid(),
                 FirstName = "John"
-            };
-            doctor.Register();
+            }.Register();
         }
     }
 }

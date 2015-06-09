@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Entities.Tests
 {
@@ -8,9 +9,11 @@ namespace Entities.Tests
         [TestMethod]
         public void Entities_Patient_Register()
         {
-            Assert.Inconclusive();
-            var patient = new Patient();
-            patient.Register();
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "John"
+            }.Register();
         }
     }
 }

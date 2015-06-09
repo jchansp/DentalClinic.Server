@@ -5,17 +5,17 @@ using System.Data.SqlClient;
 
 namespace Repositories
 {
-    public static class People
+    public static class Patients
     {
         private static readonly string ConnectionString =
             ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
 
-        public static List<Person> Retrieve()
+        public static List<Patient> Retrieve()
         {
-            var people = new List<Person>();
+            var doctors = new List<Patient>();
             using (var sqlConnection = new SqlConnection(ConnectionString))
             {
-                const string cmdText = "RetrievePeople";
+                const string cmdText = "RetrievePatients";
                 using (var sqlCommand = new SqlCommand(cmdText, sqlConnection)
                 {
                     CommandType = CommandType.StoredProcedure
@@ -25,29 +25,29 @@ namespace Repositories
                     var sqlDataReader = sqlCommand.ExecuteReader();
                     while (sqlDataReader.Read())
                     {
-                        people.Add(Person.FromDataReader(sqlDataReader));
+                        doctors.Add(Patient.FromDataReader(sqlDataReader));
                     }
                     sqlDataReader.Close();
                     sqlConnection.Close();
                 }
             }
-            return people;
+            return doctors;
         }
 
-        public static void Persist(Person person)
+        public static void Persist(Patient patient)
         {
             using (var sqlConnection = new SqlConnection(ConnectionString))
             {
-                const string cmdText = "PersistPeople";
+                const string cmdText = "PersistPatients";
                 using (var sqlCommand = new SqlCommand(cmdText, sqlConnection)
                 {
                     CommandType = CommandType.StoredProcedure
                 })
                 {
                     sqlConnection.Open();
-                    var sqlParameter = sqlCommand.Parameters.AddWithValue("@People", person.ToDataTable());
+                    var sqlParameter = sqlCommand.Parameters.AddWithValue("@Patients", patient.ToDataTable());
                     sqlParameter.SqlDbType = SqlDbType.Structured;
-                    sqlParameter.TypeName = "Person";
+                    sqlParameter.TypeName = "Patient";
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
                 }

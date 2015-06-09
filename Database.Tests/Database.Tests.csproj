@@ -51,18 +51,48 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DoctorsTests.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="EmployeesTests.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="EntitiesTests.cs">
+      <SubType>Designer</SubType>
+    </Compile>
+    <Compile Include="PatientsTests.cs">
+      <SubType>Designer</SubType>
+    </Compile>
     <Compile Include="PeopleTests.cs">
       <SubType>Designer</SubType>
     </Compile>
     <Compile Include="SqlDatabaseSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersTests.cs">
+      <SubType>Designer</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DoctorsTests.resx">
+      <DependentUpon>DoctorsTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeesTests.resx">
+      <DependentUpon>EmployeesTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntitiesTests.resx">
+      <DependentUpon>EntitiesTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientsTests.resx">
+      <DependentUpon>PatientsTests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PeopleTests.resx">
       <DependentUpon>PeopleTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersTests.resx">
+      <DependentUpon>UsersTests.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Choose>
